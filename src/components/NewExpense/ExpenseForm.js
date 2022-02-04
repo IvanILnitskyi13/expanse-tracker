@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ExpenseForm.css';
 
-const ExpenseForm = (props) => {
+const ExpenseForm = props => {
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
@@ -12,34 +12,33 @@ const ExpenseForm = (props) => {
   //     enteredDate: '',
   //   });
 
-  const titleChangeHandler = (event) => {
+  const titleChangeHandler = event => {
     setEnteredTitle(event.target.value);
-    console.log(enteredTitle);
     //  setUserInput((prevState) => {
     //    return { ...prevState, enteredTitle: event.targe.value };
     //  });
   };
 
-  const amountChangeHandler = (event) => {
+  const amountChangeHandler = event => {
     setEnteredAmount(event.target.value);
     //  setUserInput((prevState) => {
     //    return { ...prevState, enteredAmount: event.targe.value };
     //  });
   };
 
-  const dateChangeHandler = (event) => {
+  const dateChangeHandler = event => {
     setEnteredDate(event.target.value);
     //  setUserInput((prevState) => {
     //    return { ...prevState, enteredDate: event.targe.value };
     //  });
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = event => {
     event.preventDefault();
 
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
 
@@ -55,11 +54,7 @@ const ExpenseForm = (props) => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label htmlFor="Title"></label>
-          <input
-            type="text"
-            value={enteredTitle}
-            onChange={titleChangeHandler}
-          />
+          <input type="text" value={enteredTitle} onChange={titleChangeHandler} />
         </div>
         <div className="new-expense__control">
           <label htmlFor="Amount"></label>
@@ -82,6 +77,9 @@ const ExpenseForm = (props) => {
           />
         </div>
         <div className="new-expense__action">
+          <button type="button" onClick={props.onCancel}>
+            Close
+          </button>
           <button type="submit">Add Expense</button>
         </div>
       </div>

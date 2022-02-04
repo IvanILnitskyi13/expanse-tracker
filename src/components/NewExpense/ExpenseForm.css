@@ -1,5 +1,6 @@
 .new-expense__controls {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1rem;
@@ -17,7 +18,7 @@
   padding: 0.5rem;
   border-radius: 6px;
   border: 1px solid #ccc;
-  width: 20rem;
+  width: 23rem;
   max-width: 100%;
 }
 

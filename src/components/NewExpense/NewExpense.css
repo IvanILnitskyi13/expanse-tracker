@@ -17,6 +17,9 @@
   background-color: #40005d;
   color: white;
   border-radius: 12px;
+}
+
+.new-expense button:not(:last-of-type) {
   margin-right: 1rem;
 }
 
